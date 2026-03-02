@@ -1,48 +1,84 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { url } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { url } from "../consts";
 
 const conceptos = [
-	{ term: 'AFP', def: 'Administradora de Fondos de Pensiones. Gestiona los aportes jubilatorios de los trabajadores bolivianos bajo el sistema de capitalización individual.' },
-	{ term: 'UFV', def: 'Unidad de Fomento de Vivienda. Índice de mantenimiento de valor que refleja la inflación y se usa para préstamos, depósitos y contratos en Bolivia.' },
-	{ term: 'DPF', def: 'Depósito a Plazo Fijo. Instrumento de ahorro bancario en el que se deposita dinero por un plazo determinado a cambio de una tasa de interés fija.' },
-	{ term: 'TGN', def: 'Tesoro General de la Nación. Entidad del Estado boliviano encargada de administrar los recursos financieros públicos.' },
-	{ term: 'ASFI', def: 'Autoridad de Supervisión del Sistema Financiero. Regula y supervisa a todas las entidades del sistema financiero boliviano.' },
-	{ term: 'BBV', def: 'Bolsa Boliviana de Valores. Mercado organizado donde se negocian títulos valores como acciones y bonos emitidos por empresas e instituciones bolivianas.' },
-	{ term: 'Renta Dignidad', def: 'Renta vitalicia mensual que otorga el Estado boliviano a todas las personas mayores de 60 años, financiada con recursos del IDH.' },
-	{ term: 'IDH', def: 'Impuesto Directo a los Hidrocarburos. Impuesto aplicado a la producción de hidrocarburos que financia programas sociales como la Renta Dignidad y el Bono Juancito Pinto.' },
-	{ term: 'Anualidad', def: 'Serie de pagos iguales realizados a intervalos regulares de tiempo. Se usa en cálculos de préstamos, pensiones y proyecciones de ahorro.' },
-	{ term: 'Inflación', def: 'Incremento sostenido del nivel general de precios de bienes y servicios. Reduce el poder adquisitivo del dinero con el tiempo.' },
-	{ term: 'TIN', def: 'Tasa de Interés Nominal. Porcentaje pactado en un contrato financiero sin considerar la frecuencia de capitalización.' },
-	{ term: 'TEA', def: 'Tasa Efectiva Anual. Tasa de interés que incorpora la capitalización y refleja el costo o rendimiento real de una operación financiera durante un año.' },
+	{
+		term: "AFP",
+		def: "Administradora de Fondos de Pensiones. Gestiona los aportes jubilatorios de los trabajadores bolivianos bajo el sistema de capitalización individual.",
+	},
+	{
+		term: "UFV",
+		def: "Unidad de Fomento de Vivienda. Índice de mantenimiento de valor que refleja la inflación y se usa para préstamos, depósitos y contratos en Bolivia.",
+	},
+	{
+		term: "DPF",
+		def: "Depósito a Plazo Fijo. Instrumento de ahorro bancario en el que se deposita dinero por un plazo determinado a cambio de una tasa de interés fija.",
+	},
+	{
+		term: "TGN",
+		def: "Tesoro General de la Nación. Entidad del Estado boliviano encargada de administrar los recursos financieros públicos.",
+	},
+	{
+		term: "ASFI",
+		def: "Autoridad de Supervisión del Sistema Financiero. Regula y supervisa a todas las entidades del sistema financiero boliviano.",
+	},
+	{
+		term: "BBV",
+		def: "Bolsa Boliviana de Valores. Mercado organizado donde se negocian títulos valores como acciones y bonos emitidos por empresas e instituciones bolivianas.",
+	},
+	{
+		term: "Renta Dignidad",
+		def: "Renta vitalicia mensual que otorga el Estado boliviano a todas las personas mayores de 60 años, financiada con recursos del IDH.",
+	},
+	{
+		term: "IDH",
+		def: "Impuesto Directo a los Hidrocarburos. Impuesto aplicado a la producción de hidrocarburos que financia programas sociales como la Renta Dignidad y el Bono Juancito Pinto.",
+	},
+	{
+		term: "Anualidad",
+		def: "Serie de pagos iguales realizados a intervalos regulares de tiempo. Se usa en cálculos de préstamos, pensiones y proyecciones de ahorro.",
+	},
+	{
+		term: "Inflación",
+		def: "Incremento sostenido del nivel general de precios de bienes y servicios. Reduce el poder adquisitivo del dinero con el tiempo.",
+	},
+	{
+		term: "TIN",
+		def: "Tasa de Interés Nominal. Porcentaje pactado en un contrato financiero sin considerar la frecuencia de capitalización.",
+	},
+	{
+		term: "TEA",
+		def: "Tasa Efectiva Anual. Tasa de interés que incorpora la capitalización y refleja el costo o rendimiento real de una operación financiera durante un año.",
+	},
 ];
 
 const faqs = [
 	{
-		q: '¿Qué dice la Ley 393 de Servicios Financieros sobre las tasas de interés?',
-		a: 'La Ley 393 (2013) establece tasas de interés máximas para créditos de vivienda de interés social y créditos productivos, con el objetivo de facilitar el acceso al financiamiento. El ASFI y el BCB fijan periódicamente los rangos permitidos.',
+		q: "¿Qué dice la Ley 393 de Servicios Financieros sobre las tasas de interés?",
+		a: "La Ley 393 (2013) establece tasas de interés máximas para créditos de vivienda de interés social y créditos productivos, con el objetivo de facilitar el acceso al financiamiento. El ASFI y el BCB fijan periódicamente los rangos permitidos.",
 	},
 	{
-		q: '¿Cómo funciona el sistema de pensiones en Bolivia?',
-		a: 'Bolivia tiene un sistema de capitalización individual administrado por las AFP. Cada trabajador en relación de dependencia aporta mensualmente un porcentaje de su salario a su cuenta personal. Al jubilarse, puede optar por una renta vitalicia o retiro programado.',
+		q: "¿Cómo funciona el sistema de pensiones en Bolivia?",
+		a: "Bolivia tiene un sistema de capitalización individual administrado por las AFP. Cada trabajador en relación de dependencia aporta mensualmente un porcentaje de su salario a su cuenta personal. Al jubilarse, puede optar por una renta vitalicia o retiro programado.",
 	},
 	{
-		q: '¿Qué es el Fondo de Garantía para el Crédito Productivo?',
-		a: 'Es un fondo administrado por el Estado que garantiza parcialmente créditos otorgados por el sistema financiero a micro y pequeñas empresas productivas, facilitando su acceso al financiamiento.',
+		q: "¿Qué es el Fondo de Garantía para el Crédito Productivo?",
+		a: "Es un fondo administrado por el Estado que garantiza parcialmente créditos otorgados por el sistema financiero a micro y pequeñas empresas productivas, facilitando su acceso al financiamiento.",
 	},
 	{
-		q: '¿Cómo está regulada la Bolsa Boliviana de Valores?',
-		a: 'La BBV es supervisada por la ASFI. Las empresas que emiten valores (acciones, bonos) deben registrarse y presentar información financiera periódica para garantizar transparencia a los inversionistas.',
+		q: "¿Cómo está regulada la Bolsa Boliviana de Valores?",
+		a: "La BBV es supervisada por la ASFI. Las empresas que emiten valores (acciones, bonos) deben registrarse y presentar información financiera periódica para garantizar transparencia a los inversionistas.",
 	},
 	{
-		q: '¿Qué protege la Ley 393 a los usuarios financieros?',
-		a: 'La ley establece derechos como: recibir información clara sobre costos, tasas y condiciones; acceso a la Defensoría del Cliente Financiero; tasas máximas de interés en créditos de vivienda social y productivos; y portabilidad de cuentas.',
+		q: "¿Qué protege la Ley 393 a los usuarios financieros?",
+		a: "La ley establece derechos como: recibir información clara sobre costos, tasas y condiciones; acceso a la Defensoría del Cliente Financiero; tasas máximas de interés en créditos de vivienda social y productivos; y portabilidad de cuentas.",
 	},
 	{
-		q: '¿Cuál es la diferencia entre un banco y una cooperativa de ahorro?',
-		a: 'Los bancos son sociedades anónimas con fines de lucro supervisadas por la ASFI. Las cooperativas son entidades de propiedad colectiva de sus socios, sin fines de lucro, que también están reguladas por la ASFI y ofrecen servicios financieros a sus miembros.',
+		q: "¿Cuál es la diferencia entre un banco y una cooperativa de ahorro?",
+		a: "Los bancos son sociedades anónimas con fines de lucro supervisadas por la ASFI. Las cooperativas son entidades de propiedad colectiva de sus socios, sin fines de lucro, que también están reguladas por la ASFI y ofrecen servicios financieros a sus miembros.",
 	},
 ];
 ---
@@ -74,10 +110,10 @@ const faqs = [
 				overflow: hidden;
 			}
 			.aprende-hero::before {
-				content: '';
+				content: "";
 				position: absolute;
 				inset: 0;
-				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34zm0 34L0 84V50l28 16 28-16v34z' fill='none' stroke='rgba(255%2C184%2C0%2C0.3)' stroke-width='2.5'/%3E%3C/svg%3E");
+				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='104' height='90'%3E%3Cpath d='M26 0 L52 15 L52 45 L26 60 L0 45 L0 15 Z M78 0 L104 15 L104 45 L78 60 L52 45 L52 15 Z M26 60 L26 90 M78 60 L78 90' fill='none' stroke='rgba(255%2C184%2C0%2C0.3)' stroke-width='2.5'/%3E%3C/svg%3E");
 				pointer-events: none;
 			}
 			.aprende-hero-inner {
@@ -91,10 +127,12 @@ const faqs = [
 				color: white;
 				margin: 0 0 0.5em;
 			}
-			.aprende-hero h1 span { color: var(--yupay-yellow); }
+			.aprende-hero h1 span {
+				color: var(--yupay-yellow);
+			}
 			.aprende-hero p {
 				font-size: 1.05em;
-				color: rgba(255,255,255,0.6);
+				color: rgba(255, 255, 255, 0.6);
 				margin: 0;
 				line-height: 1.6;
 			}
@@ -103,7 +141,7 @@ const faqs = [
 			.search-section {
 				background: var(--yupay-cream);
 				padding: 3em 1.5em;
-				border-bottom: 1px solid rgba(0,0,0,0.06);
+				border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 			}
 			.search-wrap {
 				max-width: 560px;
@@ -122,16 +160,18 @@ const faqs = [
 				width: 100%;
 				padding: 0.85em 1.2em 0.85em 3em;
 				border-radius: 9999px;
-				border: 2px solid rgba(0,0,0,0.1);
+				border: 2px solid rgba(0, 0, 0, 0.1);
 				font-size: 1em;
 				font-family: inherit;
 				background: white;
 				outline: none;
-				box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 				transition: border-color 0.2s;
 				box-sizing: border-box;
 			}
-			#buscador:focus { border-color: var(--yupay-yellow); }
+			#buscador:focus {
+				border-color: var(--yupay-yellow);
+			}
 			#search-hint {
 				text-align: center;
 				margin-top: 0.75em;
@@ -165,13 +205,17 @@ const faqs = [
 				border-radius: 12px;
 				padding: 1.5em;
 				border-left: 4px solid var(--yupay-yellow);
-				transition: transform 0.2s, box-shadow 0.2s;
+				transition:
+					transform 0.2s,
+					box-shadow 0.2s;
 			}
 			.concept-card:hover {
 				transform: translateY(-3px);
-				box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+				box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
 			}
-			.concept-card.hidden { display: none; }
+			.concept-card.hidden {
+				display: none;
+			}
 			.concept-term {
 				font-size: 1.1em;
 				font-weight: 800;
@@ -236,9 +280,11 @@ const faqs = [
 				gap: 1em;
 				font-size: 0.97em;
 			}
-			summary::-webkit-details-marker { display: none; }
+			summary::-webkit-details-marker {
+				display: none;
+			}
 			summary::after {
-				content: '+';
+				content: "+";
 				font-size: 1.3em;
 				font-weight: 400;
 				color: var(--yupay-amber);
@@ -256,10 +302,14 @@ const faqs = [
 			}
 
 			@media (max-width: 720px) {
-				.concepts-grid { grid-template-columns: 1fr; }
+				.concepts-grid {
+					grid-template-columns: 1fr;
+				}
 			}
 			@media (min-width: 721px) and (max-width: 960px) {
-				.concepts-grid { grid-template-columns: repeat(2, 1fr); }
+				.concepts-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
 			}
 		</style>
 	</head>
@@ -271,15 +321,29 @@ const faqs = [
 			<div class="aprende-hero-inner">
 				<span class="section-label">Educación financiera</span>
 				<h1>Aprende <span>finanzas bolivianas</span></h1>
-				<p>Conceptos clave, glosario y respuestas a las preguntas más comunes sobre el sistema financiero de Bolivia.</p>
+				<p>
+					Conceptos clave, glosario y respuestas a las preguntas más
+					comunes sobre el sistema financiero de Bolivia.
+				</p>
 			</div>
 		</section>
 
 		<!-- Buscador -->
 		<section class="search-section">
 			<div class="search-wrap">
-				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-					<circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="18"
+					height="18"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2.5"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<circle cx="11" cy="11" r="8"></circle><path
+						d="m21 21-4.35-4.35"></path>
 				</svg>
 				<input
 					type="search"
@@ -289,7 +353,9 @@ const faqs = [
 					autocomplete="off"
 				/>
 			</div>
-			<p id="search-hint">Escribe para filtrar los conceptos y preguntas frecuentes</p>
+			<p id="search-hint">
+				Escribe para filtrar los conceptos y preguntas frecuentes
+			</p>
 		</section>
 
 		<!-- Tarjetas de conceptos -->
@@ -299,12 +365,18 @@ const faqs = [
 				<h2>Conceptos clave</h2>
 			</div>
 			<div class="concepts-grid" id="concepts-grid">
-				{conceptos.map((c) => (
-					<div class="concept-card" data-term={c.term.toLowerCase()} data-def={c.def.toLowerCase()}>
-						<p class="concept-term">{c.term}</p>
-						<p class="concept-def">{c.def}</p>
-					</div>
-				))}
+				{
+					conceptos.map((c) => (
+						<div
+							class="concept-card"
+							data-term={c.term.toLowerCase()}
+							data-def={c.def.toLowerCase()}
+						>
+							<p class="concept-term">{c.term}</p>
+							<p class="concept-def">{c.def}</p>
+						</div>
+					))
+				}
 				<p id="no-results">No se encontraron resultados.</p>
 			</div>
 		</section>
@@ -314,40 +386,57 @@ const faqs = [
 			<div class="faq-header">
 				<span class="section-label">Preguntas frecuentes</span>
 				<h2>Lo que más nos preguntan</h2>
-				<p>Basado en la Ley de Servicios Financieros y el sistema financiero boliviano</p>
+				<p>
+					Basado en la Ley de Servicios Financieros y el sistema
+					financiero boliviano
+				</p>
 			</div>
 			<div class="faq-list" id="faq-list">
-				{faqs.map((f) => (
-					<details data-q={f.q.toLowerCase()} data-a={f.a.toLowerCase()}>
-						<summary>{f.q}</summary>
-						<div class="faq-answer">{f.a}</div>
-					</details>
-				))}
+				{
+					faqs.map((f) => (
+						<details
+							data-q={f.q.toLowerCase()}
+							data-a={f.a.toLowerCase()}
+						>
+							<summary>{f.q}</summary>
+							<div class="faq-answer">{f.a}</div>
+						</details>
+					))
+				}
 			</div>
 		</section>
 
 		<Footer />
 
 		<script>
-			const input = document.getElementById('buscador') as HTMLInputElement;
-			const cards = document.querySelectorAll<HTMLElement>('#concepts-grid .concept-card');
-			const noResults = document.getElementById('no-results')!;
-			const faqItems = document.querySelectorAll<HTMLElement>('#faq-list details');
+			const input = document.getElementById(
+				"buscador",
+			) as HTMLInputElement;
+			const cards = document.querySelectorAll<HTMLElement>(
+				"#concepts-grid .concept-card",
+			);
+			const noResults = document.getElementById("no-results")!;
+			const faqItems =
+				document.querySelectorAll<HTMLElement>("#faq-list details");
 
-			input.addEventListener('input', () => {
+			input.addEventListener("input", () => {
 				const q = input.value.toLowerCase().trim();
 				let visibleCards = 0;
 
 				cards.forEach((card) => {
-					const match = card.dataset.term!.includes(q) || card.dataset.def!.includes(q);
-					card.classList.toggle('hidden', !match);
+					const match =
+						card.dataset.term!.includes(q) ||
+						card.dataset.def!.includes(q);
+					card.classList.toggle("hidden", !match);
 					if (match) visibleCards++;
 				});
-				noResults.style.display = visibleCards === 0 ? 'block' : 'none';
+				noResults.style.display = visibleCards === 0 ? "block" : "none";
 
 				faqItems.forEach((item) => {
-					const match = item.dataset.q!.includes(q) || item.dataset.a!.includes(q);
-					item.style.display = match ? '' : 'none';
+					const match =
+						item.dataset.q!.includes(q) ||
+						item.dataset.a!.includes(q);
+					item.style.display = match ? "" : "none";
 				});
 			});
 		</script>

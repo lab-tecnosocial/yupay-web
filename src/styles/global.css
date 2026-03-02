@@ -1,13 +1,13 @@
 :root {
-	--yupay-yellow:      #FFB800;
+	--yupay-yellow: #FFB800;
 	--yupay-yellow-dark: #E6A500;
-	--yupay-black:       #1A1A1A;
-	--yupay-charcoal:    #333333;
-	--yupay-amber:       #D4800A;
-	--yupay-honey:       #F5A623;
-	--yupay-cream:       #FFFBF0;
-	--yupay-gray:        #6B7280;
-	--yupay-gray-light:  #F9FAFB;
+	--yupay-black: #1A1A1A;
+	--yupay-charcoal: #333333;
+	--yupay-amber: #D4800A;
+	--yupay-honey: #F5A623;
+	--yupay-cream: #FFFBF0;
+	--yupay-gray: #6B7280;
+	--yupay-gray-light: #F9FAFB;
 
 	/* Legacy aliases for components that still use them */
 	--accent: var(--yupay-yellow);
@@ -20,20 +20,7 @@
 		0 2px 6px rgba(107, 114, 128, 0.15), 0 8px 24px rgba(107, 114, 128, 0.15);
 }
 
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
+
 
 body {
 	font-family: "Atkinson", sans-serif;
@@ -55,37 +42,70 @@ main {
 	padding: 3em 1em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	margin: 0 0 0.5rem 0;
 	color: var(--yupay-black);
 	line-height: 1.2;
 }
 
-h1 { font-size: 3.052em; }
-h2 { font-size: 2.441em; }
-h3 { font-size: 1.953em; }
-h4 { font-size: 1.563em; }
-h5 { font-size: 1.25em; }
+h1 {
+	font-size: 3.052em;
+}
 
-strong, b { font-weight: 700; }
+h2 {
+	font-size: 2.441em;
+}
+
+h3 {
+	font-size: 1.953em;
+}
+
+h4 {
+	font-size: 1.563em;
+}
+
+h5 {
+	font-size: 1.25em;
+}
+
+strong,
+b {
+	font-weight: 700;
+}
 
 a {
 	color: var(--yupay-amber);
 }
+
 a:hover {
 	color: var(--yupay-yellow-dark);
 }
 
-p { margin-bottom: 1em; }
+p {
+	margin-bottom: 1em;
+}
 
-.prose p { margin-bottom: 2em; }
+.prose p {
+	margin-bottom: 2em;
+}
 
 textarea {
 	width: 100%;
 	font-size: 16px;
 }
-input { font-size: 16px; }
-table { width: 100%; }
+
+input {
+	font-size: 16px;
+}
+
+table {
+	width: 100%;
+}
 
 img {
 	max-width: 100%;
@@ -98,11 +118,15 @@ code {
 	background-color: var(--yupay-gray-light);
 	border-radius: 2px;
 }
+
 pre {
 	padding: 1.5em;
 	border-radius: 8px;
 }
-pre > code { all: unset; }
+
+pre>code {
+	all: unset;
+}
 
 blockquote {
 	border-left: 4px solid var(--yupay-yellow);
@@ -118,8 +142,13 @@ hr {
 }
 
 @media (max-width: 720px) {
-	body { font-size: 18px; }
-	main { padding: 1em; }
+	body {
+		font-size: 18px;
+	}
+
+	main {
+		padding: 1em;
+	}
 }
 
 .sr-only {

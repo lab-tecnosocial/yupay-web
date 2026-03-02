@@ -1,15 +1,39 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 
 const categorias = [
-	{ icon: '🏦', title: 'Instituciones reguladas por ASFI', desc: 'Bancos, cooperativas, mutuales y fondos financieros privados clasificados por categoría.' },
-	{ icon: '📈', title: 'Tasas de interés activas', desc: 'Tasas promedio de créditos de consumo, vivienda y productivos en el sistema financiero boliviano.' },
-	{ icon: '💰', title: 'Tasas de interés pasivas', desc: 'Rendimientos de depósitos a plazo fijo y cajas de ahorro en bolivianos y dólares.' },
-	{ icon: '🛒', title: 'Canasta básica familiar', desc: 'Proyección de precios de los principales productos de la canasta básica en Bolivia.' },
-	{ icon: '📊', title: 'Distribución del gasto familiar', desc: 'Porcentaje de ingresos que los hogares bolivianos destinan a alimentación, vivienda, salud y educación.' },
-	{ icon: '⏳', title: 'Tiempo de desempleo', desc: 'Indicadores sobre duración del desempleo y participación laboral en Bolivia.' },
+	{
+		icon: "🏦",
+		title: "Instituciones reguladas por ASFI",
+		desc: "Bancos, cooperativas, mutuales y fondos financieros privados clasificados por categoría.",
+	},
+	{
+		icon: "📈",
+		title: "Tasas de interés activas",
+		desc: "Tasas promedio de créditos de consumo, vivienda y productivos en el sistema financiero boliviano.",
+	},
+	{
+		icon: "💰",
+		title: "Tasas de interés pasivas",
+		desc: "Rendimientos de depósitos a plazo fijo y cajas de ahorro en bolivianos y dólares.",
+	},
+	{
+		icon: "🛒",
+		title: "Canasta básica familiar",
+		desc: "Proyección de precios de los principales productos de la canasta básica en Bolivia.",
+	},
+	{
+		icon: "📊",
+		title: "Distribución del gasto familiar",
+		desc: "Porcentaje de ingresos que los hogares bolivianos destinan a alimentación, vivienda, salud y educación.",
+	},
+	{
+		icon: "⏳",
+		title: "Tiempo de desempleo",
+		desc: "Indicadores sobre duración del desempleo y participación laboral en Bolivia.",
+	},
 ];
 ---
 
@@ -40,10 +64,10 @@ const categorias = [
 				overflow: hidden;
 			}
 			.stats-hero::before {
-				content: '';
+				content: "";
 				position: absolute;
 				inset: 0;
-				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34zm0 34L0 84V50l28 16 28-16v34z' fill='none' stroke='rgba(255%2C184%2C0%2C0.3)' stroke-width='2.5'/%3E%3C/svg%3E");
+				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='104' height='90'%3E%3Cpath d='M26 0 L52 15 L52 45 L26 60 L0 45 L0 15 Z M78 0 L104 15 L104 45 L78 60 L52 45 L52 15 Z M26 60 L26 90 M78 60 L78 90' fill='none' stroke='rgba(255%2C184%2C0%2C0.3)' stroke-width='2.5'/%3E%3C/svg%3E");
 				pointer-events: none;
 			}
 			.stats-hero-inner {
@@ -57,18 +81,20 @@ const categorias = [
 				color: white;
 				margin: 0 0 0.5em;
 			}
-			.stats-hero h1 span { color: var(--yupay-yellow); }
+			.stats-hero h1 span {
+				color: var(--yupay-yellow);
+			}
 			.stats-hero p {
 				font-size: 1.05em;
-				color: rgba(255,255,255,0.6);
+				color: rgba(255, 255, 255, 0.6);
 				margin: 0;
 				line-height: 1.6;
 			}
 
 			/* ---- Coming soon banner ---- */
 			.coming-banner {
-				background: rgba(255,184,0,0.1);
-				border: 1.5px solid rgba(255,184,0,0.35);
+				background: rgba(255, 184, 0, 0.1);
+				border: 1.5px solid rgba(255, 184, 0, 0.35);
 				border-radius: 12px;
 				padding: 1.1em 1.5em;
 				max-width: 680px;
@@ -79,7 +105,9 @@ const categorias = [
 				font-size: 0.95em;
 				color: var(--yupay-black);
 			}
-			.coming-banner strong { color: var(--yupay-amber); }
+			.coming-banner strong {
+				color: var(--yupay-amber);
+			}
 			.banner-section {
 				background: var(--yupay-cream);
 				padding: 2.5em 1.5em;
@@ -120,11 +148,11 @@ const categorias = [
 				overflow: hidden;
 			}
 			.category-card::after {
-				content: 'Próximamente';
+				content: "Próximamente";
 				position: absolute;
 				top: 0.75em;
 				right: 0.75em;
-				background: rgba(255,184,0,0.12);
+				background: rgba(255, 184, 0, 0.12);
 				color: var(--yupay-amber);
 				font-size: 0.68em;
 				font-weight: 700;
@@ -132,7 +160,7 @@ const categorias = [
 				border-radius: 9999px;
 				letter-spacing: 0.05em;
 				text-transform: uppercase;
-				border: 1px solid rgba(255,184,0,0.3);
+				border: 1px solid rgba(255, 184, 0, 0.3);
 			}
 			.category-icon {
 				font-size: 2em;
@@ -152,10 +180,14 @@ const categorias = [
 			}
 
 			@media (max-width: 720px) {
-				.categories-grid { grid-template-columns: 1fr; }
+				.categories-grid {
+					grid-template-columns: 1fr;
+				}
 			}
 			@media (min-width: 721px) and (max-width: 960px) {
-				.categories-grid { grid-template-columns: repeat(2, 1fr); }
+				.categories-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
 			}
 		</style>
 	</head>
@@ -167,7 +199,10 @@ const categorias = [
 			<div class="stats-hero-inner">
 				<span class="section-label">Datos de Bolivia</span>
 				<h1>Estadísticas <span>financieras</span></h1>
-				<p>Información cuantitativa sobre el sistema financiero boliviano para tomar mejores decisiones.</p>
+				<p>
+					Información cuantitativa sobre el sistema financiero
+					boliviano para tomar mejores decisiones.
+				</p>
 			</div>
 		</section>
 
@@ -175,7 +210,11 @@ const categorias = [
 		<div class="banner-section">
 			<div class="coming-banner">
 				<span style="font-size:1.4em">🚧</span>
-				<p><strong>En desarrollo.</strong> Estamos preparando gráficos interactivos con datos actualizados del sistema financiero boliviano. Pronto disponible.</p>
+				<p>
+					<strong>En desarrollo.</strong> Estamos preparando gráficos interactivos
+					con datos actualizados del sistema financiero boliviano. Pronto
+					disponible.
+				</p>
 			</div>
 		</div>
 
@@ -187,13 +226,15 @@ const categorias = [
 				<p>Gráficos e indicadores que incorporaremos próximamente</p>
 			</div>
 			<div class="categories-grid">
-				{categorias.map((cat) => (
-					<div class="category-card">
-						<div class="category-icon">{cat.icon}</div>
-						<h3>{cat.title}</h3>
-						<p>{cat.desc}</p>
-					</div>
-				))}
+				{
+					categorias.map((cat) => (
+						<div class="category-card">
+							<div class="category-icon">{cat.icon}</div>
+							<h3>{cat.title}</h3>
+							<p>{cat.desc}</p>
+						</div>
+					))
+				}
 			</div>
 		</section>
 
