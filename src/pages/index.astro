@@ -1,14 +1,14 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
-import Logo from '../assets/logo.png';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import PostCard from '../components/PostCard.astro';
-import { SITE_DESCRIPTION, SITE_TITLE, url } from '../consts';
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import Logo from "../assets/logo.png";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import PostCard from "../components/PostCard.astro";
+import { SITE_DESCRIPTION, SITE_TITLE, url } from "../consts";
 
-const posts = (await getCollection('blog'))
+const posts = (await getCollection("blog"))
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 3);
 ---
@@ -20,7 +20,7 @@ const posts = (await getCollection('blog'))
 		<style>
 			/* ---- Hero ---- */
 			.hero {
-				background: #0D0C0A;
+				background: #0d0c0a;
 				position: relative;
 				overflow: hidden;
 				padding: 5em 1.5em 7em;
@@ -28,7 +28,7 @@ const posts = (await getCollection('blog'))
 			}
 			/* Honeycomb pattern */
 			.hero::before {
-				content: '';
+				content: "";
 				position: absolute;
 				inset: 0;
 				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='104' height='90'%3E%3Cpath d='M26 0 L52 15 L52 45 L26 60 L0 45 L0 15 Z M78 0 L104 15 L104 45 L78 60 L52 45 L52 15 Z M26 60 L26 90 M78 60 L78 90' fill='none' stroke='rgba(255%2C184%2C0%2C0.3)' stroke-width='2.5'/%3E%3C/svg%3E");
@@ -36,7 +36,7 @@ const posts = (await getCollection('blog'))
 			}
 			/* Diagonal wedge transition to cream */
 			.hero::after {
-				content: '';
+				content: "";
 				position: absolute;
 				bottom: -1px;
 				left: 0;
@@ -61,7 +61,11 @@ const posts = (await getCollection('blog'))
 				position: absolute;
 				inset: -32px;
 				border-radius: 50%;
-				background: radial-gradient(circle, rgba(255,184,0,0.28) 0%, transparent 70%);
+				background: radial-gradient(
+					circle,
+					rgba(255, 184, 0, 0.28) 0%,
+					transparent 70%
+				);
 				animation: haloPulse 3s ease-in-out infinite;
 			}
 			.hero-logo-wrap :global(img) {
@@ -69,34 +73,51 @@ const posts = (await getCollection('blog'))
 				z-index: 1;
 				height: 108px;
 				width: auto;
-				filter: drop-shadow(0 0 28px rgba(255,184,0,0.7)) drop-shadow(0 0 8px rgba(255,184,0,0.4));
-				animation: logoGlow 3s ease-in-out infinite alternate;
+				filter: drop-shadow(0 0 28px rgba(255, 184, 0, 0.7))
+					drop-shadow(0 0 8px rgba(255, 184, 0, 0.4));
+				animation:
+					logoBob 3s ease-in-out infinite,
+					logoGlow 3s ease-in-out infinite alternate;
+			}
+			@keyframes logoBob {
+				0%,
+				100% {
+					transform: translateY(0);
+				}
+				50% {
+					transform: translateY(-10px);
+				}
 			}
 			@keyframes haloPulse {
-				0%, 100% { transform: scale(0.88); opacity: 0.6; }
-				50%       { transform: scale(1.12); opacity: 1; }
+				0%,
+				100% {
+					transform: scale(0.88);
+					opacity: 0.6;
+				}
+				50% {
+					transform: scale(1.12);
+					opacity: 1;
+				}
 			}
 			@keyframes logoGlow {
-				from { filter: drop-shadow(0 0 18px rgba(255,184,0,0.5)) drop-shadow(0 0 6px rgba(255,184,0,0.3)); }
-				to   { filter: drop-shadow(0 0 38px rgba(255,184,0,0.85)) drop-shadow(0 0 14px rgba(255,184,0,0.55)); }
+				from {
+					filter: drop-shadow(0 0 18px rgba(255, 184, 0, 0.5))
+						drop-shadow(0 0 6px rgba(255, 184, 0, 0.3));
+				}
+				to {
+					filter: drop-shadow(0 0 38px rgba(255, 184, 0, 0.85))
+						drop-shadow(0 0 14px rgba(255, 184, 0, 0.55));
+				}
 			}
 			@keyframes fadeUp {
-				from { opacity: 0; transform: translateY(18px); }
-				to   { opacity: 1; transform: translateY(0); }
-			}
-			.hero-badge {
-				display: inline-block;
-				background: rgba(255,184,0,0.12);
-				color: var(--yupay-yellow);
-				font-size: 0.73em;
-				font-weight: 700;
-				padding: 0.35em 1.1em;
-				border-radius: 9999px;
-				margin-bottom: 1em;
-				letter-spacing: 0.1em;
-				text-transform: uppercase;
-				border: 1px solid rgba(255,184,0,0.3);
-				animation: fadeUp 0.6s ease both 0.1s;
+				from {
+					opacity: 0;
+					transform: translateY(18px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
 			}
 			.hero h1 {
 				font-size: clamp(2em, 5vw, 3.4em);
@@ -110,7 +131,7 @@ const posts = (await getCollection('blog'))
 			}
 			.hero-sub {
 				font-size: 1.1em;
-				color: rgba(255,255,255,0.6);
+				color: rgba(255, 255, 255, 0.6);
 				max-width: 520px;
 				margin: 0 auto 2.25em;
 				line-height: 1.65;
@@ -131,46 +152,52 @@ const posts = (await getCollection('blog'))
 				border-radius: 9999px;
 				text-decoration: none;
 				font-size: 1em;
-				transition: background-color 0.2s ease, box-shadow 0.2s ease;
-				box-shadow: 0 0 22px rgba(255,184,0,0.45);
+				transition:
+					background-color 0.2s ease,
+					box-shadow 0.2s ease;
+				box-shadow: 0 0 22px rgba(255, 184, 0, 0.45);
 			}
 			.btn-primary:hover {
 				background: var(--yupay-yellow-dark);
 				color: var(--yupay-black);
-				box-shadow: 0 0 36px rgba(255,184,0,0.7);
+				box-shadow: 0 0 36px rgba(255, 184, 0, 0.7);
 			}
 			.btn-secondary {
 				background: transparent;
-				color: rgba(255,255,255,0.8);
+				color: rgba(255, 255, 255, 0.8);
 				font-weight: 600;
 				padding: 0.8em 2.25em;
 				border-radius: 9999px;
 				text-decoration: none;
 				font-size: 1em;
-				border: 1.5px solid rgba(255,255,255,0.3);
-				transition: border-color 0.2s ease, color 0.2s ease;
+				border: 1.5px solid rgba(255, 255, 255, 0.3);
+				transition:
+					border-color 0.2s ease,
+					color 0.2s ease;
 			}
 			.btn-secondary:hover {
-				border-color: rgba(255,255,255,0.7);
+				border-color: rgba(255, 255, 255, 0.7);
 				color: white;
 			}
 			.btn-google-play {
 				display: inline-flex;
 				align-items: center;
 				gap: 0.5em;
-				background: rgba(255,255,255,0.1);
-				color: rgba(255,255,255,0.85);
+				background: rgba(255, 255, 255, 0.1);
+				color: rgba(255, 255, 255, 0.85);
 				font-weight: 600;
 				padding: 0.8em 1.75em;
 				border-radius: 9999px;
 				text-decoration: none;
 				font-size: 0.95em;
-				border: 1.5px solid rgba(255,255,255,0.25);
-				transition: background-color 0.2s ease, border-color 0.2s ease;
+				border: 1.5px solid rgba(255, 255, 255, 0.25);
+				transition:
+					background-color 0.2s ease,
+					border-color 0.2s ease;
 			}
 			.btn-google-play:hover {
-				background: rgba(255,255,255,0.18);
-				border-color: rgba(255,255,255,0.5);
+				background: rgba(255, 255, 255, 0.18);
+				border-color: rgba(255, 255, 255, 0.5);
 				color: white;
 			}
 
@@ -228,7 +255,9 @@ const posts = (await getCollection('blog'))
 				padding: 0.65em 1.75em;
 				border: 2px solid var(--yupay-amber);
 				border-radius: 9999px;
-				transition: background-color 0.2s ease, color 0.2s ease;
+				transition:
+					background-color 0.2s ease,
+					color 0.2s ease;
 			}
 			.all-posts-wrap a:hover {
 				background: var(--yupay-amber);
@@ -247,7 +276,7 @@ const posts = (await getCollection('blog'))
 				color: white;
 			}
 			.coming-soon .section-header p {
-				color: rgba(255,255,255,0.45);
+				color: rgba(255, 255, 255, 0.45);
 			}
 			.coming-grid {
 				display: grid;
@@ -257,19 +286,19 @@ const posts = (await getCollection('blog'))
 				margin: 0 auto;
 			}
 			.coming-card {
-				background: rgba(255,255,255,0.04);
-				border: 1px solid rgba(255,255,255,0.08);
+				background: rgba(255, 255, 255, 0.04);
+				border: 1px solid rgba(255, 255, 255, 0.08);
 				border-radius: 12px;
 				padding: 2em 1.5em;
 				text-align: center;
 				transition: background-color 0.2s ease;
 			}
 			.coming-card:hover {
-				background: rgba(255,255,255,0.07);
+				background: rgba(255, 255, 255, 0.07);
 			}
 			.coming-badge {
 				display: inline-block;
-				background: rgba(255,184,0,0.1);
+				background: rgba(255, 184, 0, 0.1);
 				color: var(--yupay-yellow);
 				font-size: 0.7em;
 				font-weight: 700;
@@ -278,7 +307,7 @@ const posts = (await getCollection('blog'))
 				margin-bottom: 0.85em;
 				letter-spacing: 0.06em;
 				text-transform: uppercase;
-				border: 1px solid rgba(255,184,0,0.25);
+				border: 1px solid rgba(255, 184, 0, 0.25);
 			}
 			.coming-icon {
 				font-size: 2em;
@@ -291,85 +320,10 @@ const posts = (await getCollection('blog'))
 				font-weight: 700;
 			}
 			.coming-card p {
-				color: rgba(255,255,255,0.42);
+				color: rgba(255, 255, 255, 0.42);
 				font-size: 0.85em;
 				margin: 0;
 				line-height: 1.55;
-			}
-
-			/* ---- Newsletter ---- */
-			.newsletter {
-				background: #0D0C0A;
-				padding: 5em 1.5em;
-				text-align: center;
-				position: relative;
-				overflow: hidden;
-			}
-			.newsletter::before {
-				content: '';
-				position: absolute;
-				inset: 0;
-				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='104' height='90'%3E%3Cpath d='M26 0 L52 15 L52 45 L26 60 L0 45 L0 15 Z M78 0 L104 15 L104 45 L78 60 L52 45 L52 15 Z M26 60 L26 90 M78 60 L78 90' fill='none' stroke='rgba(255%2C184%2C0%2C0.3)' stroke-width='2.5'/%3E%3C/svg%3E");
-				pointer-events: none;
-			}
-			.newsletter-inner {
-				position: relative;
-				z-index: 1;
-			}
-			.newsletter h2 {
-				color: white;
-				font-size: 1.8em;
-				margin: 0 0 0.4em;
-			}
-			.newsletter p {
-				color: rgba(255,255,255,0.5);
-				margin: 0 0 2em;
-				font-size: 1em;
-			}
-			.newsletter-form {
-				display: flex;
-				gap: 0.6em;
-				max-width: 440px;
-				margin: 0 auto;
-				flex-wrap: wrap;
-				justify-content: center;
-			}
-			.newsletter-form input[type="email"] {
-				flex: 1;
-				min-width: 220px;
-				padding: 0.75em 1.1em;
-				border-radius: 9999px;
-				border: 1.5px solid rgba(255,255,255,0.15);
-				font-size: 1em;
-				font-family: inherit;
-				outline: none;
-				background: rgba(255,255,255,0.07);
-				color: white;
-			}
-			.newsletter-form input[type="email"]::placeholder {
-				color: rgba(255,255,255,0.35);
-			}
-			.newsletter-form input[type="email"]:focus {
-				border-color: var(--yupay-yellow);
-				background: rgba(255,255,255,0.1);
-			}
-			.newsletter-form button {
-				background: var(--yupay-yellow);
-				color: var(--yupay-black);
-				font-weight: 700;
-				padding: 0.75em 1.75em;
-				border-radius: 9999px;
-				border: none;
-				font-size: 1em;
-				font-family: inherit;
-				cursor: pointer;
-				transition: background-color 0.2s ease, box-shadow 0.2s ease;
-				white-space: nowrap;
-				box-shadow: 0 0 18px rgba(255,184,0,0.35);
-			}
-			.newsletter-form button:hover {
-				background: var(--yupay-yellow-dark);
-				box-shadow: 0 0 28px rgba(255,184,0,0.55);
 			}
 
 			@media (max-width: 720px) {
@@ -377,8 +331,12 @@ const posts = (await getCollection('blog'))
 				.coming-grid {
 					grid-template-columns: 1fr;
 				}
-				.hero { padding: 4em 1.25em 6em; }
-				.hero-logo-wrap :global(img) { height: 80px; }
+				.hero {
+					padding: 4em 1.25em 6em;
+				}
+				.hero-logo-wrap :global(img) {
+					height: 80px;
+				}
 			}
 		</style>
 	</head>
@@ -392,18 +350,18 @@ const posts = (await getCollection('blog'))
 					<div class="hero-logo-halo"></div>
 					<Image src={Logo} alt="Yupay" height={108} />
 				</div>
-				<span class="hero-badge">Educación Financiera</span>
-				<h1>Toma el control de tu <span>dinero en Bolivia</span></h1>
+				<h1>Toma el control de tu <span>dinero</span></h1>
 				<p class="hero-sub">
-					Educación financiera para Bolivia
+					Somos una plataforma de apoyo y educación financiera para
+					Bolivia
 				</p>
 				<div class="hero-actions">
-					<a href={url('/blog')} class="btn-primary">Explorar artículos</a>
-					<a href={url('/about')} class="btn-secondary">Conoce Yupay</a>
-					<a href="https://play.google.com/store" class="btn-google-play" target="_blank" rel="noopener noreferrer">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.64.24.98.2l11.46-11.47L12 9.38zm16.3-10.69c-.4-.23-3.67-2.1-5.02-2.87l-3.19 3.19 3.2 3.2c1.35-.78 4.62-2.64 5.01-2.87.57-.33.57-1.32 0-1.65zM3.55.24A1.16 1.16 0 0 0 2.5 1.36v21.28c0 .54.29 1 .68 1.12L15.62 12z"/></svg>
-						Google Play
-					</a>
+					<a href={url("/blog")} class="btn-primary"
+						>Explorar artículos</a
+					>
+					<a href={url("/about")} class="btn-secondary"
+						>Conoce Yupay</a
+					>
 				</div>
 			</div>
 		</section>
@@ -419,7 +377,7 @@ const posts = (await getCollection('blog'))
 				{posts.map((post) => <PostCard post={post} />)}
 			</div>
 			<div class="all-posts-wrap">
-				<a href={url('/blog')}>Ver todos los artículos →</a>
+				<a href={url("/blog")}>Ver todos los artículos →</a>
 			</div>
 		</section>
 
@@ -435,31 +393,29 @@ const posts = (await getCollection('blog'))
 					<div class="coming-badge">En desarrollo</div>
 					<div class="coming-icon">📱</div>
 					<h3>App Yupay</h3>
-					<p>Educación financiera, control de gastos y metas de ahorro.</p>
+					<p>
+						Educación financiera, control de gastos y metas de
+						ahorro.
+					</p>
 				</div>
 				<div class="coming-card">
 					<div class="coming-badge">En desarrollo</div>
 					<div class="coming-icon">🧮</div>
 					<h3>Calculadoras</h3>
-					<p>Simula el pago de anualidades, calcula tu jubilación o proyecta tus ahorros.</p>
+					<p>
+						Simula el pago de anualidades, calcula tu jubilación o
+						proyecta tus ahorros.
+					</p>
 				</div>
 				<div class="coming-card">
 					<div class="coming-badge">En desarrollo</div>
 					<div class="coming-icon">📊</div>
 					<h3>Planificador</h3>
-					<p>Crea un presupuesto mensual en minutos adaptado para Bolivia.</p>
+					<p>
+						Crea un presupuesto mensual en minutos adaptado para
+						Bolivia.
+					</p>
 				</div>
-			</div>
-		</section>
-
-		<!-- Newsletter -->
-		<section class="newsletter">
-			<div class="newsletter-inner">
-				<h2>Recibe cada actualización de nuestro contenido</h2>
-				<form class="newsletter-form" onsubmit="return false;">
-					<input type="email" placeholder="tu@correo.com" aria-label="Tu correo electrónico" />
-					<button type="submit">Suscribirme</button>
-				</form>
 			</div>
 		</section>
 

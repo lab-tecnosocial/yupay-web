@@ -1,14 +1,14 @@
 ---
-import { Image } from 'astro:assets';
-import Logo from '../assets/logo.png';
-import { url } from '../consts';
-import HeaderLink from './HeaderLink.astro';
+import { Image } from "astro:assets";
+import Logo from "../assets/logo.png";
+import { url } from "../consts";
+import HeaderLink from "./HeaderLink.astro";
 ---
 
 <header>
 	<nav>
-		<a href={url('/')} class="logo-link">
-			<Image src={Logo} alt="Yupay" height={36} />
+		<a href={url("/")} class="logo-link">
+			<Image src={Logo} alt="Yupay" height={108} quality={100} />
 		</a>
 		<div class="nav-links">
 			<HeaderLink href="/">Inicio</HeaderLink>
@@ -17,7 +17,6 @@ import HeaderLink from './HeaderLink.astro';
 			<HeaderLink href="/estadisticas">Estadísticas</HeaderLink>
 			<HeaderLink href="/about">Nosotros</HeaderLink>
 		</div>
-		<a href={url('/blog')} class="cta-btn">Leer artículos</a>
 	</nav>
 </header>
 
@@ -64,25 +63,22 @@ import HeaderLink from './HeaderLink.astro';
 	.nav-links :global(a.active) {
 		background-color: #fff8e6;
 	}
-	.cta-btn {
-		background-color: var(--yupay-yellow);
-		color: var(--yupay-black);
-		font-weight: 700;
-		padding: 0.5em 1.25em;
-		border-radius: 8px;
-		text-decoration: none;
-		font-size: 0.9em;
-		transition: background-color 0.2s ease;
-		white-space: nowrap;
-	}
-	.cta-btn:hover {
-		background-color: var(--yupay-yellow-dark);
-		color: var(--yupay-black);
-	}
 	@media (max-width: 720px) {
-		header { padding: 0 1em; }
-		.cta-btn { display: none; }
-		.nav-links { gap: 0; }
-		.nav-links :global(a) { padding: 0.4em 0.5em; font-size: 0.9em; }
+		header {
+			padding: 0 0.5em;
+			overflow: hidden;
+		}
+		nav {
+			gap: 0.25em;
+		}
+		.nav-links {
+			gap: 0;
+			flex-shrink: 1;
+			overflow: hidden;
+		}
+		.nav-links :global(a) {
+			padding: 0.35em 0.35em;
+			font-size: 0.78em;
+		}
 	}
 </style>
