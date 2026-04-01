@@ -12,6 +12,6 @@ export default defineConfig({
 		plugins: [tailwindcss()],
 	},
 	site: 'https://lab-tecnosocial.github.io',
-	base: '/yupay',
+	base: '/yupay-web',
 	integrations: [mdx(), sitemap()],
 });

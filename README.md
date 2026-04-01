@@ -2,7 +2,7 @@
 
 > **Yupay** (quechua: *"contar"*) es una plataforma de educación financiera orientada al mercado boliviano. Contenido claro, práctico y sin conflicto de interés sobre ahorro, inversión y planificación personal.
 
-**Sitio en producción:** https://lab-tecnosocial.github.io/yupay/
+**Sitio en producción:** https://lab-tecnosocial.github.io/yupay-web/
 
 ---
 
@@ -56,10 +56,10 @@ npm install
 
 # Servidor de desarrollo
 npm run dev
-# → http://localhost:4321/yupay/
+# → http://localhost:4321/yupay-web/
 ```
 
-> **Nota:** El sitio está configurado con `base: '/yupay'`, por lo que la URL local incluye ese prefijo. Acceder a `localhost:4321` sin el sufijo devolverá 404.
+> **Nota:** El sitio está configurado con `base: '/yupay-web'`, por lo que la URL local incluye ese prefijo. Acceder a `localhost:4321` sin el sufijo devolverá 404.
 
 ```bash
 # Build de producción
